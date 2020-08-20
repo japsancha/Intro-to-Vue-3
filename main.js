@@ -23,17 +23,20 @@ const app = Vue.createApp({
     },
     computed: {
         title() {
-            let onSale = ""
-            if (this.onSale) {
-                onSale = "is on sale"
-            }
-            return this.brand + ' ' + this.product + ' ' + onSale
+            return this.brand + ' ' + this.product 
         },
         image() {
             return this.variants[this.selectedVariasnt].image
         },
         inStock() {
             return this.variants[this.selectedVariasnt].quantity
+        },
+        sale() {
+            if(this.onSale) {
+                return "is on sale"
+            } else {
+                return ""
+            }
         }
 
     }
